@@ -88,10 +88,10 @@ conda activate finml
 pip install -r requirements.txt
 
 ### 2. Generate dataset
-python src/data/generate_dataset.py
+python -m src.data.generate_dataset
 
 ### 3. Train models
-python src/training/train_mlp.py
+python -m src.training.train_mlp
 
 ---
 
