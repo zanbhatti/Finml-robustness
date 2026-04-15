@@ -30,6 +30,7 @@ y = df["call_price"].values.reshape(-1, 1)
 # STEP 3: Shuffle the dataset
 # ----------------------------
 # This prevents any accidental ordering effects in the train/test split.
+np.random.seed(42)  # For reproducibility
 indices = np.random.permutation(len(df))
 X = X[indices]
 y = y[indices]
@@ -175,3 +176,8 @@ plt.show()
 print("\nSaving results...")
 np.save("results/y_test.npy", y_test)
 np.save("results/predictions.npy", test_predictions)
+
+
+# Save trained model weights
+torch.save(model.state_dict(), "results/mlp_model.pth")
+print("Model saved to results/mlp_model.pth")
